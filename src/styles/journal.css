@@ -1,0 +1,229 @@
+/* 阅读列表共用同一层级，科技感只保留在配色与细线中。 */
+.container.journal-page {
+  max-width: 920px;
+  padding-top: 60px;
+  padding-bottom: 76px;
+  min-height: calc(100vh - 155px);
+}
+.post-row {
+  padding: 25px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.post-row-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+}
+.post-title {
+  font-size: 19px;
+  line-height: 1.65;
+  font-weight: 450;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.post-title a:hover {
+  color: var(--accent);
+}
+.post-row time {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.post-excerpt {
+  max-width: 72ch;
+  margin-top: 9px;
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: clip;
+}
+.post-row-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.post-row-meta > a:hover {
+  color: var(--accent);
+}
+.post-row-meta .post-featured {
+  color: var(--accent);
+}
+.blog-page .page-heading {
+  margin-bottom: 30px;
+}
+.blog-page .page-heading h1 {
+  font-size: 34px;
+  letter-spacing: 0;
+}
+.blog-page .page-heading p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.archive-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 6px 6px 16px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  color: var(--text-muted);
+}
+.archive-search:focus-within {
+  border-color: var(--accent);
+}
+.archive-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  color: var(--text);
+  font-size: 14px;
+}
+.archive-search input::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+.category-tabs {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+.category-tabs > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 7px 15px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.category-tabs a.selected {
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+.category-tabs a:hover {
+  color: var(--text);
+}
+.archive-summary {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 22px 0 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.archive-count {
+  white-space: nowrap;
+}
+.active-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+.filter-token {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 4px 8px;
+  color: var(--text-secondary);
+  overflow-wrap: anywhere;
+}
+.filter-token:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.filter-reset {
+  margin-left: auto;
+  white-space: nowrap;
+}
+.filter-reset:hover {
+  color: var(--accent);
+}
+/* 详情页和公共操作保留原有语义，避免列表精简影响正文及其他页面。 */
+.post-meta {
+  color: var(--text-muted);
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 13px;
+  row-gap: 5px;
+}
+.post-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.post-meta .category-text {
+  color: var(--accent);
+}
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.tag-list a {
+  overflow-wrap: anywhere;
+}
+.tag-list a:hover {
+  color: var(--accent);
+}
+.status-dot {
+  display: inline-block;
+  background: var(--accent);
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+  flex: none;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 42px;
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 10px 17px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  font-weight: 450;
+  white-space: nowrap;
+}
+.primary {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.primary:hover {
+  background: var(--accent-strong);
+}
+.secondary {
+  border-color: var(--line);
+  background: var(--surface);
+  color: var(--text);
+}
+.secondary:hover {
+  background: var(--surface-hover);
+}

@@ -1,0 +1,16 @@
+{
+	email {$ACME_EMAIL}
+	# 容器使用高端口，宿主机映射到 80/443，代理进程无需 root 权限。
+	http_port 8080
+	https_port 8443
+	admin off
+}
+
+{$DOMAIN} {
+	encode zstd gzip
+	request_body {
+		max_size 12MB
+	}
+	header Strict-Transport-Security "max-age=31536000"
+	reverse_proxy web:3000
+}

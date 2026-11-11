@@ -1,0 +1,51 @@
+services:
+  api:
+    environment:
+      APP_URL: ${APP_URL:?请在.env设置https完整站点地址}
+      DEMO_SEED: "false"
+  web:
+    environment:
+      APP_URL: ${APP_URL:?请在.env设置https完整站点地址}
+      ICP_FILING_NUMBER: ${ICP_FILING_NUMBER:-}
+  caddy:
+    image: stacknote-proxy:${IMAGE_TAG:-local}
+    build:
+      context: .
+      dockerfile: docs/Dockerfile.caddy
+    restart: unless-stopped
+    init: true
+    user: "1001:1001"
+    environment:
+      DOMAIN: ${DOMAIN:?请在.env设置域名}
+      ACME_EMAIL: ${ACME_EMAIL:?请在.env设置证书联系邮箱}
+    depends_on:
+      web:
+        condition: service_healthy
+    ports:
+      - "80:8080"
+      - "443:8443"
+      - "443:8443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    stop_grace_period: 35s
+    mem_limit: 128m
+    cpus: 0.5
+    pids_limit: 100
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  caddy-data:
+  caddy-config:

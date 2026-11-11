@@ -1,0 +1,253 @@
+/* 作品条目使用真实封面与紧凑标记，柔和留白承托内容，不再为缺图项目制造视觉占位。 */
+.container.work-page {
+  max-width: 1060px;
+  min-height: calc(100vh - 220px);
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+.work-page-heading {
+  margin-bottom: 36px;
+}
+.work-page-heading h1 {
+  font-size: clamp(29px, 3.2vw, 40px);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.6px;
+}
+.work-page-heading p {
+  max-width: 62ch;
+  margin-top: 14px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.9;
+}
+.work-list {
+  display: grid;
+  gap: 24px;
+}
+.work-item {
+  min-width: 0;
+  padding: 30px;
+  border: 1px solid var(--line-soft);
+  border-radius: 24px;
+  background: var(--surface);
+  scroll-margin-top: 110px;
+}
+.work-item:target {
+  outline: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  outline-offset: 5px;
+}
+.work-item-with-cover {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.65fr) minmax(0, 1.5fr);
+  align-items: start;
+  gap: 30px;
+}
+.work-preview {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 17px;
+  background: var(--surface-soft);
+}
+.work-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.work-body {
+  min-width: 0;
+}
+.work-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.work-name {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 0;
+}
+.work-mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+.work-name h2 {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 23px;
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+}
+.work-status {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  min-height: 29px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.work-status-online {
+  color: var(--accent-strong);
+  background: var(--accent-bg);
+}
+.work-status-building {
+  background: var(--surface-hover);
+}
+.work-status-archived {
+  color: var(--text-muted);
+}
+.work-description {
+  max-width: 75ch;
+  margin-top: 18px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.9;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.work-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 0;
+  margin: 20px 0 0;
+  list-style: none;
+}
+.work-stack li {
+  max-width: 100%;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.work-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+.work-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 9px 15px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.work-link:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+.work-link-primary {
+  border-color: transparent;
+  background: var(--accent-bg);
+  color: var(--accent-strong);
+}
+.work-link-primary:hover {
+  background: color-mix(in srgb, var(--accent-bg) 80%, var(--accent) 20%);
+  color: var(--accent-strong);
+}
+.work-note {
+  margin-top: 30px;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+.work-empty {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  padding: 60px 24px;
+  border: 1px dashed var(--line);
+  border-radius: 24px;
+  color: var(--text-muted);
+}
+.work-empty h2 {
+  color: var(--text);
+  font-size: 20px;
+  font-weight: 500;
+}
+@media (max-width: 760px) {
+  .container.work-page {
+    padding-top: 42px;
+    padding-bottom: 60px;
+  }
+  .work-item-with-cover {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .work-preview {
+    aspect-ratio: 16 / 8;
+  }
+}
+@media (max-width: 480px) {
+  .container.work-page {
+    padding-inline: 20px;
+    padding-top: 32px;
+  }
+  .work-page-heading {
+    margin-bottom: 28px;
+  }
+  .work-page-heading h1 {
+    font-size: 28px;
+    letter-spacing: 0;
+  }
+  .work-item {
+    padding: 22px;
+    border-radius: 22px;
+  }
+  .work-heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .work-name {
+    width: 100%;
+    gap: 12px;
+  }
+  .work-name h2 {
+    font-size: 21px;
+  }
+  .work-mark {
+    flex-basis: 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+  .work-preview {
+    aspect-ratio: 4 / 3;
+    border-radius: 14px;
+  }
+  .work-description {
+    margin-top: 15px;
+  }
+  .work-status {
+    font-size: 11px;
+  }
+  .work-link {
+    min-height: 42px;
+  }
+}

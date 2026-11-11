@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <symbol id="gy-wordmark-v3" viewBox="0 0 64 64">
+      <g fill="currentColor" stroke="currentColor" stroke-width=".4" stroke-linejoin="round">
+        <path d="M26 18H16L8 26V40L16 48H26L32 42V31H21V36H27V40L24 43H18L13 38V28L18 23H24L28 27L32 23Z"/>
+        <path d="M35 18H41L46 27L51 18H57L49 32V46L47 48H43V32Z"/>
+      </g>
+    </symbol>
+  </defs>
+  <rect width="64" height="64" rx="20" fill="#e7ebf7"/>
+  <use href="#gy-wordmark-v3" color="#53669c"/>
+</svg>

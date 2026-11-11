@@ -1,0 +1,4 @@
+FROM caddy:2.11.7-alpine
+# 代理只监听 8080/8443；移除官方二进制的低端口能力，避免与权限收紧冲突。
+RUN setcap -r /usr/bin/caddy
+USER 1001:1001
