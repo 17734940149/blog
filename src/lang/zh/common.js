@@ -61,27 +61,7 @@ export default {
     noPurpose: '博客初衷还在整理中。',
     // 能力直接展示具体技术，避免与技术方向、工具列表重复出现。
     skillOverview: '能力与技术',
-    // 首页完整能力总览，按产品、设计、开发、交付串起用户提供的四个方向。
-    capability: {
-      title: 'AI 驱动的全栈产品构建能力',
-      summary: 'AI × 产品 × 设计 × 开发 × 工程交付',
-      product: {
-        title: 'AI 产品能力',
-        description: '需求分析、产品规划、功能定义、方案验证'
-      },
-      design: {
-        title: 'AI 设计能力',
-        description: '交互设计、UI/UX、原型构建、体验优化'
-      },
-      development: {
-        title: 'AI 全栈开发能力',
-        description: '前后端一体化开发、接口设计、数据管理、AI 辅助编程'
-      },
-      delivery: {
-        title: 'AI 工程交付能力',
-        description: '自动化测试、环境搭建、容器部署、上线迭代'
-      },
-      technologies: '常用技术'
-    }
+    // 能力标签条使用简短标题，细节由后台配置并在浮窗中展示。
+    aiCapabilities: '核心能力'
   }
 };

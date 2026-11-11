@@ -1,6 +1,7 @@
 "use client";
 
 import { useI18n } from "@/components/providers";
+import { CapabilityFields } from "@/components/admin/capability-fields";
 import type { SiteSettings } from "@/lib/types";
 
 type HomeProfileKey = "role" | "avatar" | "skills" | "purpose";
@@ -46,18 +47,11 @@ export function HomeProfileFields({
           />
           <small>{t("admin.homeCardAvatarHint")}</small>
         </label>
-        <label className="admin-field">
-          <span>{t("admin.homeCardSkills")}</span>
-          <textarea
-            rows={5}
-            maxLength={1500}
-            placeholder={t("admin.homeCardSkillsPlaceholder")}
-            value={values.skills || ""}
-            onChange={(event) => onChange("skills", event.target.value)}
-            disabled={disabled}
-          />
-          <small>{t("admin.homeCardSkillsHint")}</small>
-        </label>
+        <CapabilityFields
+          value={values.skills || ""}
+          onChange={(value) => onChange("skills", value)}
+          disabled={disabled}
+        />
         <label className="admin-field">
           <span>{t("admin.homeCardPurpose")}</span>
           <textarea

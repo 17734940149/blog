@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState, type ReactNode } from "react";
 import { ChevronDown, Eye, FileText } from "lucide-react";
 import { Markdown } from "@/components/markdown";
 import { useI18n } from "@/components/providers";
@@ -159,10 +159,13 @@ export function EnglishContentFields({
   fields,
   arrayField,
   disabled,
+  renderField,
 }: {
   fields: EnglishField[];
   arrayField?: EnglishArrayField;
   disabled: boolean;
+  // 仅由调用页面覆盖特定业务字段，其他表单继续使用原有通用渲染方式。
+  renderField?: (field: EnglishField) => ReactNode;
 }) {
   const { t } = useI18n();
   return (
@@ -174,7 +177,11 @@ export function EnglishContentFields({
       <div className="admin-form-panel">
         <p className="admin-hint">{t("admin.bilingualHint")}</p>
         {fields.map((field) => (
-          <EnglishTextField key={field.name} field={field} disabled={disabled} />
+          <Fragment key={field.name}>
+            {renderField?.(field) ?? (
+              <EnglishTextField field={field} disabled={disabled} />
+            )}
+          </Fragment>
         ))}
         {arrayField && (
           <EnglishArrayFields field={arrayField} disabled={disabled} />

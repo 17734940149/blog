@@ -22,7 +22,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "role": "全栈开发者 · 独立产品构建",
     "avatar": "",
     "gitlab": "",
-    "skills": "前端与交互：React、TypeScript、Next.js\n服务端与数据：Python、FastAPI、SQLite\n工程与交付：Docker、Linux、自动化部署",
+    "skills": "[lightbulb] AI 产品能力：需求分析、产品规划、功能定义、方案验证\n[figma] AI 设计能力：交互设计、UI/UX、原型构建、体验优化\n[code] AI 全栈测开：AI 应用开发、全栈开发、测试用例设计、自动化测试\n[rocket] AI 工程交付：环境搭建、容器部署、上线迭代",
     "purpose": "把作品、思考和探索放在同一个地方。记录从想法到交付的过程，整理可复用的经验，也让新的合作从相互了解开始。",
     "en": {},
 }

@@ -218,6 +218,31 @@ export default {
     // 管理后台固定账号登录与密码显示控制。
     "account": "Account",
     "showPassword": "Show password",
-    "hidePassword": "Hide password"
+    "hidePassword": "Hide password",
+
+    // 新增编辑器提示按项目规则仅在中文前添加 EN。
+    capabilityRows: {
+      icon: 'EN图标',
+      title: 'EN能力名称',
+      description: 'EN具体内容',
+      hint: 'EN可自由增删和调整顺序，保存后按“图标 名称：具体内容”展示。',
+      titleHint: 'EN名称中请勿使用冒号，冒号由首页自动显示。',
+      add: 'EN新增一行',
+      remove: 'EN删除此行',
+      moveUp: 'EN上移此行',
+      moveDown: 'EN下移此行',
+      limit: 'EN能力配置合计最多 1500 个字符，请缩短内容后继续。',
+      empty: 'EN尚未配置能力，新增一行后即可在首页展示。',
+      icons: {
+        lightbulb: 'EN灯泡 · 产品',
+        figma: 'EN设计 · 原型',
+        code: 'EN代码 · 开发',
+        rocket: 'EN火箭 · 交付',
+        database: 'EN数据库',
+        wrench: 'EN工具',
+        brain: 'EN人工智能',
+        blocks: 'EN通用'
+      }
+    }
   }
 };

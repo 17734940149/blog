@@ -218,6 +218,31 @@ export default {
     // 管理后台固定账号登录与密码显示控制。
     "account": "账号",
     "showPassword": "显示密码",
-    "hidePassword": "隐藏密码"
+    "hidePassword": "隐藏密码",
+
+    // 首页能力按行配置，图标与文案一起保存到既有资料字段。
+    capabilityRows: {
+      icon: '图标',
+      title: '能力名称',
+      description: '具体内容',
+      hint: '可自由增删和调整顺序，保存后按“图标 名称：具体内容”展示。',
+      titleHint: '名称中请勿使用冒号，冒号由首页自动显示。',
+      add: '新增一行',
+      remove: '删除此行',
+      moveUp: '上移此行',
+      moveDown: '下移此行',
+      limit: '能力配置合计最多 1500 个字符，请缩短内容后继续。',
+      empty: '尚未配置能力，新增一行后即可在首页展示。',
+      icons: {
+        lightbulb: '灯泡 · 产品',
+        figma: '设计 · 原型',
+        code: '代码 · 开发',
+        rocket: '火箭 · 交付',
+        database: '数据库',
+        wrench: '工具',
+        brain: '人工智能',
+        blocks: '通用'
+      }
+    }
   }
 };

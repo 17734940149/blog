@@ -1,27 +1,43 @@
+export const capabilityIconNames = [
+  "lightbulb", "figma", "code", "rocket", "database", "wrench", "brain", "blocks",
+] as const;
+
+export type CapabilityIconName = (typeof capabilityIconNames)[number];
+
 export interface CapabilityGroup {
+  icon: CapabilityIconName;
   title: string;
-  tools: string[];
+  description: string;
 }
 
-// 后台用自然文本维护能力，统一解析中英文标点，避免让作者编辑结构化数据。
+// 在原有逐行配置上增加可选图标前缀；只识别白名单，避免把旧标题中的方括号误删。
 export function parseCapabilities(value: string): CapabilityGroup[] {
   return value
     .split(/\r?\n/)
     .map((line) => line.trim())
     .filter(Boolean)
     .map((line) => {
-      const separator = line.search(/[:：]/);
-      if (separator < 0) return { title: line, tools: [] };
+      const prefix = line.match(/^\[([a-z]+)\]\s*/);
+      const icon = prefix && capabilityIconNames.includes(prefix[1] as CapabilityIconName)
+        ? prefix[1] as CapabilityIconName
+        : "blocks";
+      const content = prefix && icon === prefix[1] ? line.slice(prefix[0].length) : line;
+      const separator = content.search(/[:：]/);
+      if (separator < 0) return { icon, title: content, description: "" };
       return {
-        title: line.slice(0, separator).trim(),
-        tools: line
-          .slice(separator + 1)
-          .split(/[、,，]/)
-          .map((tool) => tool.trim())
-          .filter(Boolean),
+        icon,
+        title: content.slice(0, separator).trim(),
+        description: content.slice(separator + 1).trim(),
       };
     })
     .filter((group) => Boolean(group.title));
+}
+
+// 继续写入既有 skills 字段，保留内容标点与行序，避免为了配置图标新增数据库结构。
+export function serializeCapabilities(groups: CapabilityGroup[]): string {
+  return groups
+    .map((group) => `${group.icon === "blocks" ? "" : `[${group.icon}] `}${group.title.trim()}：${group.description.trim()}`)
+    .join("\n");
 }
 
 // 总览与项目页使用相同锚点，让没有外链的探索项目也能继续查看完整资料。

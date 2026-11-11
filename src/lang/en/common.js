@@ -128,27 +128,7 @@ export default {
     "noPurpose": "The story behind this blog is still taking shape.",
     // 能力总览继续与中文包保持相同的 key 和信息范围。
     "skillOverview": "Skills & technologies",
-    // 本次新增英文文案按项目规则添加 EN 前缀，与中文总览保持完整一致。
-    "capability": {
-      "title": "ENAI 驱动的全栈产品构建能力",
-      "summary": "ENAI × 产品 × 设计 × 开发 × 工程交付",
-      "product": {
-        "title": "ENAI 产品能力",
-        "description": "EN需求分析、产品规划、功能定义、方案验证"
-      },
-      "design": {
-        "title": "ENAI 设计能力",
-        "description": "EN交互设计、UI/UX、原型构建、体验优化"
-      },
-      "development": {
-        "title": "ENAI 全栈开发能力",
-        "description": "EN前后端一体化开发、接口设计、数据管理、AI 辅助编程"
-      },
-      "delivery": {
-        "title": "ENAI 工程交付能力",
-        "description": "EN自动化测试、环境搭建、容器部署、上线迭代"
-      },
-      "technologies": "EN常用技术"
-    }
+    // 新增文案按项目约定使用 EN 前缀。
+    "aiCapabilities": "EN核心能力"
   }
 };

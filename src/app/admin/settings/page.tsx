@@ -15,6 +15,7 @@ import { AdminError, AdminHeading, AdminLoading } from "@/components/admin/ui";
 import { PasswordSettings } from "@/components/admin/password-settings";
 import { HomeProfileFields } from "@/components/admin/profile-fields";
 import { EnglishContentFields } from "@/components/admin/english-content-fields";
+import { CapabilityFields } from "@/components/admin/capability-fields";
 
 const englishSettingsFields: {
   name: keyof SettingsEnglish;
@@ -280,6 +281,17 @@ export default function AdminSettingsPage() {
                 onChange: (value) => updateEnglish(field.name, value),
               }))}
               disabled={busy}
+              // 能力有可排序的行结构，复用中文编辑器，其他英文字段沿用通用表单。
+              renderField={(field) =>
+                field.name === "skills" ? (
+                  <CapabilityFields
+                    value={field.value}
+                    onChange={field.onChange}
+                    disabled={busy}
+                    lang="en"
+                  />
+                ) : undefined
+              }
             />
             <div className="admin-settings-save">
               <span className="admin-hint">{t("admin.settingsSaveHint")}</span>

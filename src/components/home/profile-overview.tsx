@@ -30,7 +30,7 @@ function getIntroduction(content: string) {
   return cleaned;
 }
 
-// 简介与联系先完整呈现，再让能力总览与近况并排对齐，形成同一层级的个人能力与作品证明。
+// 能力作为简介后的简短补充，近况和作品保留右栏，避免单独分区拉长首页。
 export async function ProfileOverview({
   settings,
   projects,
@@ -77,12 +77,12 @@ export async function ProfileOverview({
           ) : (
             <p>{settings.purpose || settings.description || t("overview.noPurpose")}</p>
           )}
+          <CapabilityOverview groups={capabilities} />
           <section className="profile-contact" aria-labelledby="profile-contact-title">
             <h2 id="profile-contact-title">{t("overview.connect")}： </h2>
             <ProfileLinks settings={settings} />
           </section>
         </div>
-        <CapabilityOverview groups={capabilities} />
         {hasActivity && (
           <aside className="profile-currently" aria-labelledby="profile-currently-title">
             <h2 id="profile-currently-title">

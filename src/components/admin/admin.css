@@ -1410,3 +1410,84 @@
     transition: none !important;
   }
 }
+
+/* 能力编辑器只扩展本字段布局，继续复用管理区的输入、按钮和主题色板。 */
+.admin-capability-fields {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.admin-capability-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.admin-capability-heading > span {
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 500;
+}
+.admin-capability-heading .admin-button {
+  min-height: 35px;
+  padding: 6px 10px;
+}
+.admin-capability-list {
+  display: grid;
+  gap: 20px;
+}
+.admin-capability-row {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  margin: 0;
+  padding: 0 0 20px;
+  border: 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.admin-capability-row:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.admin-capability-row-main {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 12px;
+  min-width: 0;
+}
+.admin-capability-icon-field > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.admin-capability-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.admin-capability-actions .admin-icon-button {
+  width: 36px;
+  min-height: 41px;
+  cursor: pointer;
+}
+.admin-capability-actions .admin-icon-button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.admin-capability-fields > .admin-danger-text {
+  color: var(--danger);
+}
+@media (max-width: 600px) {
+  .admin-capability-row-main {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .admin-capability-title-field {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .admin-capability-actions {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
